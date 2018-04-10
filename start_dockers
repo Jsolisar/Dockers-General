@@ -1,0 +1,7 @@
+docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/databases/portainer:/data portainer/portainer
+
+docker run -d --name=postgres --restart=always -p 0.0.0.0:32777:5432 -v "$PWD/my-postgres.conf":/etc/postgresql.conf denmojo/debian-postgres
+
+docker run -d --name gitlab-runner --restart=always -p 8080:80 --publish 222:222 -v /var/run/docker.sock:/var/run/docker.sock -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner:latest
+
+docker run -d -p 8069:8069 --name odoo-container -v /opt/odoo/v8/addonsDev:/opt/odoo/v8/addonsDev/ -v /opt/odoo/v8/addons:/opt/odoo/v8/addons -v /opt/odoo/v8/openerp/addons:/opt/odoo/v8/openerp/addons -v /opt/odoo/v8/openerp/addons_clients:/opt/odoo/v8/openerp/addons_clients -v /opt/odoo/v8/openerp/addons_millores:/opt/odoo/v8/openerp/addons_millores odoo
